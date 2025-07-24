@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yasaswini | AI/ML Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f0f9ff, #e0f0ff);
+      color: #333;
+    }
+
+    nav {
+      background-color: #0a192f;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background: #007acc;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background: #005f99;
+    }
+
+    header {
+      background: linear-gradient(to right, #007acc, #005f99);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    section {
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      scroll-margin-top: 120px;
+    }
+
+    section#about { background: linear-gradient(to right, #ffffff, #e8f5ff); }
+    section#skills { background: linear-gradient(to right, #ffffff, #e7f0ff); }
+    section#projects { background: linear-gradient(to right, #ffffff, #fff2f9); }
+    section#internships { background: linear-gradient(to right, #ffffff, #fff9e6); }
+    section#publication { background: linear-gradient(to right, #ffffff, #eaffea); }
+    section#strengths { background: linear-gradient(to right, #ffffff, #f0f0f0); }
+    section#contact { background: linear-gradient(to right, #ffffff, #e6f9f1); }
+
+    h1, h2 {
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #007acc;
+      border-bottom: 2px solid #c2e4ff;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    ul li::marker {
+      color: #007acc;
+    }
+
+    .project {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-left: 4px solid #007acc;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #005f99;
+      font-size: 1.5rem;
+    }
+
+    footer {
+      background: #0a192f;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      links.classList.toggle('show');
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <h1>Yasaswini</h1>
+    <button class="nav-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
+      <a href="#publication">Publication</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- rest of the content remains unchanged -->
+
+
+  <section id="about">
+  <h2>About Me</h2>
+  <p><em>Turning ideas into intelligent solutions through AI & problem-solving.</em></p>
+  <p>I’m a Computer Science student passionate about AI and ML, with experience building intelligent models and solving real-world problems through data-driven approaches. I've published research at IEEE, developed medical diagnostic tools, and worked on projects in algorithm design and software development.</p>
+  <p>I'm always eager to apply my skills, collaborate in innovative teams, and contribute meaningfully to impactful solutions.</p>
+</section>
+
+  <section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li><strong>Languages:</strong> C, C++, Java, Python, SQL</li>
+    <li><strong>Web:</strong> HTML, CSS, JavaScript</li>
+    <li><strong>AI/ML:</strong> Machine Learning, Deep Learning, AI Model Development</li>
+    <li><strong>Tools:</strong> OpenCV, Scikit-learn, TensorFlow (basic), MS Office</li>
+    <li><strong>Concepts:</strong> Data Structures, OOP</li>
+  </ul>
+</section>
+
+
+  <section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project">
+    <h3>Brain Tumor Detection using Machine Learning</h3>
+    <p><strong>Tech Stack:</strong> Python, OpenCV, Scikit-learn, Gabor Filters, Random Forest</p>
+    <p>This project applies machine learning techniques to classify brain MRI images as tumor or non-tumor. Gabor filters were used to extract frequency and texture features, and Random Forest was used as a classifier. The model achieved a accuracy of 94%. This demonstrates the potential of AI in medical diagnosis and image-based classification tasks.</p>
+  </div>
+
+  <div class="project">
+    <h3>Closest Pair of Aircrafts Detection</h3>
+    <p><strong>Tech Stack:</strong> C, Algorithm Design, Divide and Conquer</p>
+    <p>Designed and implemented a divide-and-conquer algorithm to efficiently detect the closest pair of aircrafts in a 2D airspace. Reduced complexity to O(n log n) from brute-force O(n²). This project highlights my skills in computational geometry and optimization.</p>
+  </div>
+
+  <div class="project">
+    <h3>Online Job Portal System</h3>
+    <p><strong>Tech Stack:</strong> C++, OOP, File Handling</p>
+    <p>Built a desktop-based job portal using C++, enabling recruiters and job seekers to manage postings, applications, and user accounts. Designed modular classes and interfaces for various user types using object-oriented design principles.</p>
+  </div>
+
+  <div class="project">
+    <h3>Currency Converter Android App</h3>
+    <p><strong>Tech Stack:</strong> Java, Android Studio, XML</p>
+    <p>Developed an intuitive mobile application that allows users to convert between currencies using real-time exchange rates. The app provides a smooth UI with dropdown menus and integrates with an exchange rate API for accurate data.</p>
+  </div>
+</section>
+
+
+  <section id="internships">
+    <h2>Internships</h2>
+    <ul>
+      <li>Machine Learning Intern – Finlatics (Jun–Sep 2024)</li>
+      <li>Frontend Developer – Edunet Foundation (Jan–Mar 2023)</li>
+      <li>AI/ML Trainee – Edunet Foundation (Jan–Mar 2023)</li>
+    </ul>
+  </section>
+
+ <section id="publication">
+  <h2>Publication</h2>
+  <p><strong>LAN Network Stability Prediction using Hybrid ARIMA-LSTM Framework</strong><br>
+  <em>Accepted at IEEE ICCCNT 2025, IIT Indore</em></p>
+
+  <p><strong>Agenda:</strong> The goal of this research is to improve the prediction of LAN network instability—particularly in detecting sudden latency spikes and disruptions due to congestion or hardware anomalies. It aims to support proactive network management and maintain consistent Quality of Service (QoS).</p>
+
+  <p><strong>Methodology:</strong> The model combines ARIMA (AutoRegressive Integrated Moving Average) to capture linear trends with LSTM (Long Short-Term Memory) to model nonlinear, time-dependent behavior. This hybrid architecture leverages the strengths of both statistical and neural network methods to better analyze time-series latency data.</p>
+
+  <p><strong>Novelty:</strong> Unlike previous approaches, this work integrates Fast Fourier Transform (FFT)-based feature engineering, rolling statistics, and trend slopes to enhance predictive accuracy. The combination of ARIMA’s interpretability and LSTM’s deep learning capabilities allows the model to learn both steady and volatile patterns in latency.</p>
+
+  <p><strong>Outcome:</strong> The proposed hybrid model demonstrated superior accuracy and stability compared to standalone ARIMA or LSTM models. It effectively anticipates instability in real-time LAN environments, making it suitable for smart network monitoring systems.</p>
+</section>
+
+
+  <section id="strengths">
+    <h2>Strengths</h2>
+    <ul>
+      <li>Leadership & Team Collaboration</li>
+      <li>Project & Time Management</li>
+      <li>Critical Thinking & Problem Solving</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> yasaswiniboggavarapu@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9381010084</p>
+    <p><strong>Languages:</strong> English, Telugu, Hindi</p>
+    <div class="social-icons">
+      <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Yasaswini Boggavarapu. Built with 💙 and curiosity.</p>
+  </footer>
+</body>
+</html>
