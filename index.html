@@ -1,286 +1,706 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yasaswini | AI/ML Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f0f9ff, #e0f0ff);
-      color: #333;
-    }
-
-    nav {
-      background-color: #0a192f;
-      color: white;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      background: #007acc;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-
-    .nav-links a:hover {
-      background: #005f99;
-    }
-
-    header {
-      background: linear-gradient(to right, #007acc, #005f99);
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-
-    section {
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 900px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      scroll-margin-top: 120px;
-    }
-
-    section#about { background: linear-gradient(to right, #ffffff, #e8f5ff); }
-    section#skills { background: linear-gradient(to right, #ffffff, #e7f0ff); }
-    section#projects { background: linear-gradient(to right, #ffffff, #fff2f9); }
-    section#internships { background: linear-gradient(to right, #ffffff, #fff9e6); }
-    section#publication { background: linear-gradient(to right, #ffffff, #eaffea); }
-    section#strengths { background: linear-gradient(to right, #ffffff, #f0f0f0); }
-    section#contact { background: linear-gradient(to right, #ffffff, #e6f9f1); }
-
-    h1, h2 {
-      margin: 0 0 1rem;
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #007acc;
-      border-bottom: 2px solid #c2e4ff;
-      padding-bottom: 0.5rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    ul li::marker {
-      color: #007acc;
-    }
-
-    .project {
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      border-left: 4px solid #007acc;
-      background: #f9f9f9;
-      border-radius: 8px;
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      color: #005f99;
-      font-size: 1.5rem;
-    }
-
-    footer {
-      background: #0a192f;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-        display: none;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-    }
-  </style>
-  <script>
-    function toggleMenu() {
-      const links = document.querySelector('.nav-links');
-      links.classList.toggle('show');
-    }
-  </script>
+  
+  <!-- SEO Meta Tags -->
+  <title>Yasaswini Portfolio</title>
+  <meta name="description" content="Immersive Developer Terminal & Portfolio Dashboard for Yasaswini Boggavarapu, an AI/ML developer specializing in deep learning, XAI, and NLP." />
+  <meta name="keywords" content="Yasaswini Boggavarapu, ML Engineer, AI Researcher, Explainable AI, NLP, ARIMA-LSTM, SRM University, Portfolio" />
+  <meta name="author" content="Yasaswini Boggavarapu" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Yasaswini Boggavarapu | AI/ML Research Terminal" />
+  <meta property="og:description" content="Explore published research, deep learning networks, and interactive terminal logs." />
+  <meta property="og:image" content="./profile.jpg" />
+  
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./style.css?v=1.0.5" />
 </head>
 <body>
-  <nav>
-    <h1>Yasaswini</h1>
-    <button class="nav-toggle" onclick="toggleMenu()">
+
+  <!-- Floating Background Mesh & Canvas -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-grid-overlay"></div>
+
+  <!-- ATS Mode Top Floating Navigation Bar -->
+  <div class="ats-mode-topbar">
+    <div class="ats-mode-title">
+      <i class="fas fa-file-invoice"></i> ATS / Recruiter Plain Text Version Active
+    </div>
+    <button class="btn-exit-ats" id="exit-ats-btn" aria-label="Return to rich dashboard view">
+      <i class="fas fa-terminal"></i> Exit Text View
+    </button>
+  </div>
+
+  <!-- Mobile Top Sticky Navigation Bar -->
+  <div class="mobile-top-bar">
+    <div class="mobile-logo">Yasaswini Portfolio</div>
+    <button class="mobile-menu-btn" aria-label="Open sidebar menu">
       <i class="fas fa-bars"></i>
     </button>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#internships">Internships</a>
-      <a href="#publication">Publication</a>
-      <a href="#strengths">Strengths</a>
-      <a href="#contact">Contact</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+
+  <!-- MAIN DASHBOARD CONTAINER -->
+  <div class="dashboard-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-profile">
+        <div class="avatar-wrapper">
+          <img src="./profile.jpg" onerror="this.onerror=null; this.src='./profile.svg';" alt="Yasaswini Boggavarapu" class="avatar" />
+          <div class="profile-status" title="Kernel Live & Open for Collaboration"></div>
+        </div>
+        <h2>Yasaswini Boggavarapu</h2>
+        <div class="sidebar-title">AI/ML Engineer</div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="#summary" class="nav-link active"><i class="fas fa-user"></i> About Profile</a>
+        <a href="#experience" class="nav-link"><i class="fas fa-history"></i> Experience Logs</a>
+        <a href="#projects" class="nav-link"><i class="fas fa-code-branch"></i> Project Repos</a>
+        <a href="#publications" class="nav-link"><i class="fas fa-scroll"></i> Publications</a>
+        <a href="#skills" class="nav-link"><i class="fas fa-dna"></i> Skills Matrix</a>
+        <a href="#contact" class="nav-link"><i class="fas fa-paper-plane"></i> Contact Node</a>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="contact-quick-list">
+          <div class="contact-quick-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Badrachalam, Telangana</span>
+          </div>
+          <div class="contact-quick-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:yasaswiniboggavarapu@gmail.com">yasaswiniboggavarapu@gmail.com</a>
+          </div>
+          <div class="contact-quick-item">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:+919381010084">+91 9381010084</a>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://github.com/Yashub0428" target="_blank" class="social-btn" aria-label="Open GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/yasaswini-boggavarapu-b35002259" target="_blank" class="social-btn" aria-label="Open LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        
+        <a href="./RESUME.pdf" target="_blank" class="btn-resume-dl" id="dl-resume-btn">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN WORKSPACE -->
+    <main class="main-content">
+      
+      <!-- Workspace Header -->
+      <header class="dashboard-header">
+        <div class="header-title">
+          <h1>Yasaswini <span>Portfolio</span></h1>
+          <div class="header-subtitle">
+            <i class="fas fa-code"></i> Active Thread: <span class="typing-text"></span>
+          </div>
+        </div>
+        
+        <div class="header-controls">
+          <button class="toggle-btn ats-toggle" title="Switch to ATS friendly plain text view for scanning">
+            <i class="fas fa-file-invoice"></i> ATS Friendly View
+          </button>
+          <button class="toggle-btn theme-toggle" title="Switch color scheme theme">
+            <i class="fas fa-moon"></i> <span>Dark Mode</span>
+          </button>
+        </div>
+      </header>
+
+
+
+      <!-- SECTION: ABOUT PROFILE -->
+      <section id="summary" class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-user-astronaut"></i> Executive Biography</h2>
+          <div class="section-header-line"></div>
+        </div>
+        
+        <div class="widget-grid two-cols">
+          <div class="dashboard-card about-widget">
+            <p class="about-summary">
+              Computer Science graduate with IEEE-published research and proven experience delivering production-ready 
+              <strong>Machine Learning</strong>, <strong>Deep Learning</strong>, and <strong>NLP systems</strong> 
+              alongside full-stack web applications. Developed frameworks ranging from Explainable AI healthcare analytics to 
+              LLM-based cybersecurity tools using Python, TensorFlow, Keras, HuggingFace, React.js, Flask, and REST APIs, 
+              achieving up to 86.95% model accuracy. Seeking roles as Machine Learning Engineer, AI Engineer, Data Scientist, or Software Developer.
+            </p>
+            
+            <div class="about-bullets-grid">
+              <div class="about-bullet-card">
+                <div class="bullet-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="bullet-content">
+                  <h4>Explainable AI (XAI)</h4>
+                  <p>Obesity risk model interpretations using DiCe counterfactual explanations.</p>
+                </div>
+              </div>
+              <div class="about-bullet-card">
+                <div class="bullet-icon"><i class="fas fa-shield-halved"></i></div>
+                <div class="bullet-content">
+                  <h4>Behavioral NLP</h4>
+                  <p>Hybrid threat detection combining DistilBERT and Isolation Forest.</p>
+                </div>
+              </div>
+              <div class="about-bullet-card">
+                <div class="bullet-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="bullet-content">
+                  <h4>Time-Series Research</h4>
+                  <p>ARIMA-LSTM networks for network latency and QoS prediction models.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-card accent-glow-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-family: var(--font-heading); margin-bottom: 1.5rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.65rem;">
+                <i class="fas fa-graduation-cap" style="color: var(--accent);"></i> Academic Track
+              </h3>
+              <div style="line-height: 1.7;">
+                <h4 style="font-size: 1.1rem; font-weight: 600;">SRM University</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.15rem;">Andhra Pradesh, India</p>
+                <p style="color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; margin-top: 0.75rem;">B.Sc. in Computer Science</p>
+                <div style="margin-top: 1rem;">
+                  <span style="font-size: 0.85rem; font-weight: bold; background: var(--accent-glow); color: var(--accent); padding: 0.35rem 0.75rem; border-radius: 20px; border: 1px solid rgba(217,70,239,0.25);">
+                    CGPA: 8.38 / 10
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 1.25rem; margin-top: 2rem;">
+              <i class="fas fa-calendar-alt"></i> Graduating Track: 2022 — 2026
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: EXPERIENCE LOGS -->
+      <section id="experience" class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-history"></i> Experience Logs</h2>
+          <div class="section-header-line"></div>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="timeline">
+            <!-- Exp 1 -->
+            <div class="timeline-item">
+              <div class="timeline-badge"></div>
+              <div class="timeline-header">
+                <div class="timeline-title">
+                  <h3>Research Intern — Explainable AI</h3>
+                  <div class="timeline-company"><i class="fas fa-stethoscope"></i> UCI Healthcare Analytics Core</div>
+                </div>
+                <div class="timeline-date">Aug 2025 — Nov 2025</div>
+              </div>
+              <ul class="timeline-details">
+                <li>Built an Explainable AI (XAI) framework for obesity risk prediction using Random Forest and Ensemble Learning on the UCI Obesity Dataset, achieving 86.95% model accuracy.</li>
+                <li>Integrated DiCe Counterfactual Explanations to generate personalized, interpretable lifestyle recommendations, improving model transparency for preventive healthcare analytics.</li>
+                <li>Translated ML model outputs into actionable health guidance, enabling data-driven lifestyle optimization for individual users.</li>
+              </ul>
+              <div class="timeline-links">
+                <a href="https://github.com/Yashub0428/Obesity_Riskprediction_Counterfactual_Explanations" target="_blank" class="inline-link" aria-label="Explainable AI Code Repo">
+                  <i class="fab fa-github"></i> Repository Code
+                </a>
+              </div>
+            </div>
+            
+            <!-- Exp 2 -->
+            <div class="timeline-item">
+              <div class="timeline-badge"></div>
+              <div class="timeline-header">
+                <div class="timeline-title">
+                  <h3>Machine Learning Intern</h3>
+                  <div class="timeline-company"><i class="fas fa-building-columns"></i> Finlatics</div>
+                </div>
+                <div class="timeline-date">Jun 2024 — Sep 2024</div>
+              </div>
+              <ul class="timeline-details">
+                <li>Developed a Brain Tumor Detection and Classification system using MRI imaging data and supervised ML models (CNN, SVM), improving diagnostic prediction accuracy by 15% over baseline.</li>
+                <li>Automated end-to-end ML pipeline stages - data preprocessing, feature extraction, model training, and evaluation - reducing manual workflow time by 30%.</li>
+                <li>Collaborated in an Agile/Scrum team of 5, participating in sprint planning and delivering weekly model performance reports.</li>
+              </ul>
+              <div class="timeline-links">
+                <!-- Using profile link since no specific Brain Tumor repo was specified -->
+                <a href="https://github.com/Yashub0428" target="_blank" class="inline-link" aria-label="Brain Tumor Code Repo">
+                  <i class="fab fa-github"></i> Profile Repos
+                </a>
+                <a href="https://drive.google.com/file/d/19F2yfyLsq3tCoj-fx33I_e6PUv0v6d3l/view?usp=sharing" target="_blank" class="inline-link sec-btn" aria-label="Finlatics Internship Certificate">
+                  <i class="fas fa-certificate"></i> View Certificate
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: PROJECT REPOS -->
+      <section id="projects" class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-code-fork"></i> Project Repositories</h2>
+          <div class="section-header-line"></div>
+        </div>
+        
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="dashboard-card project-card">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-user-shield"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/Yashub0428/Insider-Threat-Detect" target="_blank" class="social-btn" style="width: 38px; height: 38px; font-size: 1.1rem;" title="Open GitHub Code Link">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-title">LLM-Assisted Insider Threat Detection</div>
+            <p class="project-desc">
+              Developed a hybrid AI insider threat detection framework integrating DistilBERT, Isolation Forest, XGBoost, and graph-based interaction analysis for behavioral anomaly detection.
+            </p>
+            <ul class="project-bullets">
+              <li>Implemented multi-modal risk scoring and LLM-based recommendation engines.</li>
+              <li>Improved threat detection interpretability by 25% over standard frameworks.</li>
+              <li>Enabled real-time, actionable cybersecurity alerts for workspace administrators.</li>
+            </ul>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">DistilBERT</span>
+              <span class="tech-tag">HuggingFace</span>
+              <span class="tech-tag">XGBoost</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Flask</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="dashboard-card project-card cyan-glow-card">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-comment-medical"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/Yashub0428" target="_blank" class="social-btn" style="width: 38px; height: 38px; font-size: 1.1rem;" title="Open GitHub Profile">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-title">MindMate: Mental & Legal Support AI</div>
+            <p class="project-desc">
+              Built a conversational AI chatbot using Python, Flask, and BERT (TensorFlow/Keras) to provide mental health support and workplace legal guidance for employees.
+            </p>
+            <ul class="project-bullets">
+              <li>Improved deep learning sentiment analysis and intent recognition accuracy by 10%.</li>
+              <li>Ensured data privacy through anonymized chat handling and multilingual NLP.</li>
+              <li>Implemented REST API backend structures with secure enterprise routes.</li>
+            </ul>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">BERT</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Keras</span>
+              <span class="tech-tag">REST APIs</span>
+              <span class="tech-tag">NLP</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: PUBLICATIONS -->
+      <section id="publications" class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-scroll"></i> Academic Publications</h2>
+          <div class="section-header-line"></div>
+        </div>
+        
+        <div class="publications-list">
+          <!-- Pub 1 -->
+          <div class="dashboard-card publication-card">
+            <div class="pub-title">
+              <h3>A Hybrid ARIMA-LSTM Framework for LAN Latency Prediction with Stability Classification and Anomaly Detection</h3>
+            </div>
+            <div class="pub-venue">
+              <i class="fas fa-university"></i> Accepted & Presented at IEEE ICCCNT 2025, IIT Indore
+            </div>
+            <div class="pub-details-grid">
+              <div class="pub-detail-box">
+                <h4>Methodology</h4>
+                <p>Combines statistical ARIMA models for linear trends with deep LSTM neural networks for volatile nonlinear time-series fluctuations.</p>
+              </div>
+              <div class="pub-detail-box">
+                <h4>Novelty</h4>
+                <p>Integrates Fast Fourier Transform (FFT) feature engineering, rolling window stats, and trend slopes to model complex latency spikes.</p>
+              </div>
+              <div class="pub-detail-box">
+                <h4>Outcome</h4>
+                <p>Outperformed standalone forecasting models, anticipating sudden congestion anomalies to support proactive QoS network management.</p>
+              </div>
+            </div>
+            <a href="https://github.com/Yashub0428/LAN-Stability-Prediction-_-ARIMA_LSTM" target="_blank" class="inline-link" aria-label="Latency prediction research repo">
+              <i class="fab fa-github"></i> Repository Code
+            </a>
+          </div>
+
+          <!-- Pub 2 -->
+          <div class="dashboard-card publication-card">
+            <div class="pub-title">
+              <h3>An Explainable Counterfactual Machine Learning Framework for Personalized Obesity Risk Prediction and Lifestyle Optimization</h3>
+            </div>
+            <div class="pub-venue">
+              <i class="fas fa-university"></i> Accepted & Presented at AIHC 2025, NIT Calicut
+            </div>
+            <div class="pub-details-grid">
+              <div class="pub-detail-box">
+                <h4>Methodology</h4>
+                <p>Employs Random Forest and Ensemble classifiers for risk prediction alongside DiCe counterfactual explanations to provide visual model audits.</p>
+              </div>
+              <div class="pub-detail-box">
+                <h4>Novelty</h4>
+                <p>Constructs user-specific feedback loops suggesting minimal behavioral modifications (diet, exercise) required to alter risk levels.</p>
+              </div>
+              <div class="pub-detail-box">
+                <h4>Outcome</h4>
+                <p>Demonstrated 86.95% prediction accuracy, establishing a transparent, reliable pipeline suitable for clinical decisions and remote health apps.</p>
+              </div>
+            </div>
+            <a href="https://github.com/Yashub0428/Obesity_Riskprediction_Counterfactual_Explanations" target="_blank" class="inline-link" aria-label="Obesity risk prediction research repo">
+              <i class="fab fa-github"></i> Repository Code
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: SKILLS MATRIX -->
+      <section id="skills" class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-dna"></i> Technical Skills Matrix</h2>
+          <div class="section-header-line"></div>
+        </div>
+
+        <div class="skills-controls">
+          <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="skills-search" class="skills-search-input" placeholder="Filter technology nodes (e.g. PyTorch, Flask, XAI)..." />
+          </div>
+        </div>
+        
+        <div class="skills-container">
+          <!-- ML & AI -->
+          <div class="dashboard-card skills-cat-card">
+            <h3>Machine Learning & AI <i class="fas fa-microchip"></i></h3>
+            <div class="skills-badges-list">
+              <span class="skill-badge">Scikit-learn</span>
+              <span class="skill-badge">TensorFlow</span>
+              <span class="skill-badge">Keras</span>
+              <span class="skill-badge">PyTorch</span>
+              <span class="skill-badge">HuggingFace Transformers</span>
+              <span class="skill-badge">BERT</span>
+              <span class="skill-badge">DistilBERT</span>
+              <span class="skill-badge">Large Language Models</span>
+            </div>
+          </div>
+
+          <!-- AI Specializations -->
+          <div class="dashboard-card skills-cat-card">
+            <h3>AI Specializations <i class="fas fa-network-wired"></i></h3>
+            <div class="skills-badges-list">
+              <span class="skill-badge">Natural Language Processing (NLP)</span>
+              <span class="skill-badge">Deep Learning</span>
+              <span class="skill-badge">Explainable AI (XAI)</span>
+              <span class="skill-badge">Computer Vision</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="dashboard-card skills-cat-card">
+            <h3>Languages <i class="fas fa-code"></i></h3>
+            <div class="skills-badges-list">
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">C++</span>
+              <span class="skill-badge">C</span>
+              <span class="skill-badge">SQL</span>
+              <span class="skill-badge">Java</span>
+            </div>
+          </div>
+
+          <!-- Web & Backend -->
+          <div class="dashboard-card skills-cat-card">
+            <h3>Web & Backend <i class="fas fa-server"></i></h3>
+            <div class="skills-badges-list">
+              <span class="skill-badge">React.js</span>
+              <span class="skill-badge">Flask</span>
+              <span class="skill-badge">REST APIs</span>
+              <span class="skill-badge">HTML</span>
+              <span class="skill-badge">CSS</span>
+              <span class="skill-badge">JavaScript</span>
+            </div>
+          </div>
+
+          <!-- Data & Analysis -->
+          <div class="dashboard-card skills-cat-card">
+            <h3>Data & Analysis <i class="fas fa-chart-bar"></i></h3>
+            <div class="skills-badges-list">
+              <span class="skill-badge">NumPy</span>
+              <span class="skill-badge">Pandas</span>
+              <span class="skill-badge">Matplotlib</span>
+              <span class="skill-badge">Seaborn</span>
+              <span class="skill-badge">OpenCV</span>
+            </div>
+          </div>
+
+          <!-- Core CS & Methods -->
+          <div class="dashboard-card skills-cat-card">
+            <h3>Core CS & Methods <i class="fas fa-cube"></i></h3>
+            <div class="skills-badges-list">
+              <span class="skill-badge">Data Structures</span>
+              <span class="skill-badge">Algorithms</span>
+              <span class="skill-badge">OOP</span>
+              <span class="skill-badge">DBMS</span>
+              <span class="skill-badge">Operating Systems</span>
+              <span class="skill-badge">Computer Networks</span>
+              <span class="skill-badge">SDLC</span>
+              <span class="skill-badge">Agile/Scrum</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: CONTACT NODE -->
+      <section id="contact" class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-paper-plane"></i> Contact Node Connection</h2>
+          <div class="section-header-line"></div>
+        </div>
+        
+        <div class="contact-container">
+          <div class="contact-card-info">
+            <div class="contact-item-box">
+              <div class="contact-box-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-box-text">
+                <h4>Direct Email</h4>
+                <a href="mailto:yasaswiniboggavarapu@gmail.com">yasaswiniboggavarapu@gmail.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-item-box">
+              <div class="contact-box-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="contact-box-text">
+                <h4>Call / Text</h4>
+                <a href="tel:+919381010084">+91 9381010084</a>
+              </div>
+            </div>
+
+            <div class="contact-item-box">
+              <div class="contact-box-icon"><i class="fas fa-language"></i></div>
+              <div class="contact-box-text">
+                <h4>Languages Spoken</h4>
+                <p>English, Telugu, Hindi</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-card">
+            <form class="contact-form">
+              <div class="form-group-row">
+                <div class="form-field">
+                  <label for="form-name">Sender Name</label>
+                  <input type="text" id="form-name" class="form-input" placeholder="e.g. Hiring Manager" required />
+                </div>
+                <div class="form-field">
+                  <label for="form-email">Sender Email</label>
+                  <input type="email" id="form-email" class="form-input" placeholder="e.g. manager@company.com" required />
+                </div>
+              </div>
+              
+              <div class="form-field">
+                <label for="form-subject">Subject</label>
+                <input type="text" id="form-subject" class="form-input" placeholder="e.g. ML Engineering Role Opportunities" />
+              </div>
+              
+              <div class="form-field">
+                <label for="form-message">Transmission Content</label>
+                <textarea id="form-message" class="form-input" placeholder="Type message body here..." required></textarea>
+              </div>
+              
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Transmit Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Footer -->
+      <footer class="dashboard-footer">
+        <p>&copy; 2026 Yasaswini Boggavarapu. Clean modern code built for recruiters and search systems.</p>
+      </footer>
+    </main>
+  </div>
+
+
+  <!-- RECRUITER / ATS FRIENDLY PLAIN TEXT VIEW (REPLACES DYNAMIC VIEW IN ATS MODE) -->
+  <div id="ats-resume-view">
+    <div class="ats-header">
+      <h1>BOGGAVARAPU YASASWINI</h1>
+      <p>Badrachalam, Telangana</p>
+      <div class="ats-contact-info">
+        <span>Email: <a href="mailto:yasaswiniboggavarapu@gmail.com">yasaswiniboggavarapu@gmail.com</a></span>
+        <span>Phone: +91 9381010084</span>
+        <span>GitHub: <a href="https://github.com/Yashub0428" target="_blank">github.com/Yashub0428</a></span>
+        <span>LinkedIn: <a href="https://linkedin.com/in/yasaswini-boggavarapu-b35002259" target="_blank">linkedin.com/in/yasaswini-boggavarapu-b35002259</a></span>
+      </div>
     </div>
-  </nav>
 
-  <!-- rest of the content remains unchanged -->
-
-
-  <section id="about">
-  <h2>About Me</h2>
-  <p><em>Turning ideas into intelligent solutions through AI & problem-solving.</em></p>
-  <p>I’m a Computer Science student passionate about AI and ML, with experience building intelligent models and solving real-world problems through data-driven approaches. I've published research at IEEE, developed medical diagnostic tools, and worked on projects in algorithm design and software development.</p>
-  <p>I'm always eager to apply my skills, collaborate in innovative teams, and contribute meaningfully to impactful solutions.</p>
-</section>
-
-  <section id="skills">
-  <h2>Skills</h2>
-  <ul>
-    <li><strong>Languages:</strong> C, C++, Java, Python, SQL</li>
-    <li><strong>Web:</strong> HTML, CSS, JavaScript</li>
-    <li><strong>AI/ML:</strong> Machine Learning, Deep Learning, AI Model Development</li>
-    <li><strong>Tools:</strong> OpenCV, Scikit-learn, TensorFlow (basic), MS Office</li>
-    <li><strong>Concepts:</strong> Data Structures, OOP</li>
-  </ul>
-</section>
-
-
-  <section id="projects">
-  <h2>Projects</h2>
-
-  <div class="project">
-    <h3>Brain Tumor Detection using Machine Learning</h3>
-    <p><strong>Tech Stack:</strong> Python, OpenCV, Scikit-learn, Gabor Filters, Random Forest</p>
-    <p>This project applies machine learning techniques to classify brain MRI images as tumor or non-tumor. Gabor filters were used to extract frequency and texture features, and Random Forest was used as a classifier. The model achieved a accuracy of 94%. This demonstrates the potential of AI in medical diagnosis and image-based classification tasks.</p>
-  </div>
-
-  <div class="project">
-    <h3>Closest Pair of Aircrafts Detection</h3>
-    <p><strong>Tech Stack:</strong> C, Algorithm Design, Divide and Conquer</p>
-    <p>Designed and implemented a divide-and-conquer algorithm to efficiently detect the closest pair of aircrafts in a 2D airspace. Reduced complexity to O(n log n) from brute-force O(n²). This project highlights my skills in computational geometry and optimization.</p>
-  </div>
-
-  <div class="project">
-    <h3>Online Job Portal System</h3>
-    <p><strong>Tech Stack:</strong> C++, OOP, File Handling</p>
-    <p>Built a desktop-based job portal using C++, enabling recruiters and job seekers to manage postings, applications, and user accounts. Designed modular classes and interfaces for various user types using object-oriented design principles.</p>
-  </div>
-
-  <div class="project">
-    <h3>Currency Converter Android App</h3>
-    <p><strong>Tech Stack:</strong> Java, Android Studio, XML</p>
-    <p>Developed an intuitive mobile application that allows users to convert between currencies using real-time exchange rates. The app provides a smooth UI with dropdown menus and integrates with an exchange rate API for accurate data.</p>
-  </div>
-</section>
-
-
-  <section id="internships">
-    <h2>Internships</h2>
-    <ul>
-      <li>Machine Learning Intern – Finlatics (Jun–Sep 2024)</li>
-      <li>Frontend Developer – Edunet Foundation (Jan–Mar 2023)</li>
-      <li>AI/ML Trainee – Edunet Foundation (Jan–Mar 2023)</li>
-    </ul>
-  </section>
-
- <section id="publication">
-  <h2>Publication</h2>
-  <p><strong>LAN Network Stability Prediction using Hybrid ARIMA-LSTM Framework</strong><br>
-  <em>Accepted at IEEE ICCCNT 2025, IIT Indore</em></p>
-
-  <p><strong>Agenda:</strong> The goal of this research is to improve the prediction of LAN network instability—particularly in detecting sudden latency spikes and disruptions due to congestion or hardware anomalies. It aims to support proactive network management and maintain consistent Quality of Service (QoS).</p>
-
-  <p><strong>Methodology:</strong> The model combines ARIMA (AutoRegressive Integrated Moving Average) to capture linear trends with LSTM (Long Short-Term Memory) to model nonlinear, time-dependent behavior. This hybrid architecture leverages the strengths of both statistical and neural network methods to better analyze time-series latency data.</p>
-
-  <p><strong>Novelty:</strong> Unlike previous approaches, this work integrates Fast Fourier Transform (FFT)-based feature engineering, rolling statistics, and trend slopes to enhance predictive accuracy. The combination of ARIMA’s interpretability and LSTM’s deep learning capabilities allows the model to learn both steady and volatile patterns in latency.</p>
-
-  <p><strong>Outcome:</strong> The proposed hybrid model demonstrated superior accuracy and stability compared to standalone ARIMA or LSTM models. It effectively anticipates instability in real-time LAN environments, making it suitable for smart network monitoring systems.</p>
-</section>
-
-
-  <section id="strengths">
-    <h2>Strengths</h2>
-    <ul>
-      <li>Leadership & Team Collaboration</li>
-      <li>Project & Time Management</li>
-      <li>Critical Thinking & Problem Solving</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>Email:</strong> yasaswiniboggavarapu@gmail.com</p>
-    <p><strong>Phone:</strong> +91 9381010084</p>
-    <p><strong>Languages:</strong> English, Telugu, Hindi</p>
-    <div class="social-icons">
-      <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <div class="ats-section">
+      <h2 class="ats-section-title">Summary</h2>
+      <p class="ats-summary">
+        Computer Science graduate with IEEE-published research and proven experience delivering production-ready Machine Learning, Deep Learning, and NLP systems alongside full-stack web applications — from Explainable AI healthcare analytics to LLM-based cybersecurity tools — using Python, TensorFlow, Keras, HuggingFace, React.js, Flask, and REST APIs, achieving up to 86.95% model accuracy. Seeking roles as Machine Learning Engineer, AI Engineer, Data Scientist, or Software Developer.
+      </p>
     </div>
-  </section>
 
-  <footer>
-    <p>&copy; 2025 Yasaswini Boggavarapu. Built with 💙 and curiosity.</p>
-  </footer>
+    <div class="ats-section">
+      <h2 class="ats-section-title">Publications</h2>
+      <div class="ats-entry">
+        <div class="ats-entry-header">
+          <span>A Hybrid ARIMA-LSTM Framework for LAN Latency Prediction with Stability Classification and Anomaly Detection</span>
+          <span><a href="https://github.com/Yashub0428/LAN-Stability-Prediction-_-ARIMA_LSTM" target="_blank">GitHub Link</a></span>
+        </div>
+        <div class="ats-entry-subheader">
+          <span>Accepted and Presented at IEEE ICCCNT 2025, IIT Indore</span>
+        </div>
+      </div>
+      <div class="ats-entry">
+        <div class="ats-entry-header">
+          <span>An Explainable Counterfactual Machine Learning Framework for Personalized Obesity Risk Prediction and Lifestyle Optimization</span>
+          <span><a href="https://github.com/Yashub0428/Obesity_Riskprediction_Counterfactual_Explanations" target="_blank">GitHub Link</a></span>
+        </div>
+        <div class="ats-entry-subheader">
+          <span>Accepted and Presented at AIHC 2025, NIT Calicut</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ats-section">
+      <h2 class="ats-section-title">Education</h2>
+      <div class="ats-entry">
+        <div class="ats-entry-header">
+          <span>SRM University, Andhra Pradesh</span>
+          <span>2022 — 2026</span>
+        </div>
+        <div class="ats-entry-subheader">
+          <span>B.Sc. in Computer Science</span>
+          <span>CGPA: 8.38/10</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ats-section">
+      <h2 class="ats-section-title">Work Experience</h2>
+      <div class="ats-entry">
+        <div class="ats-entry-header">
+          <span>Research Intern — Explainable AI</span>
+          <span>Aug 2025 — Nov 2025</span>
+        </div>
+        <div class="ats-entry-subheader">
+          <span>Ensemble Healthcare Analytics (UCI Obesity Dataset Partnership)</span>
+          <span><a href="https://github.com/Yashub0428/Obesity_Riskprediction_Counterfactual_Explanations" target="_blank">GitHub Link</a></span>
+        </div>
+        <ul class="ats-entry-list">
+          <li>Built an Explainable AI (XAI) framework for obesity risk prediction using Random Forest and Ensemble Learning on the UCI Obesity Dataset, achieving 86.95% model accuracy.</li>
+          <li>Integrated DiCe Counterfactual Explanations to generate personalized, interpretable lifestyle recommendations, improving model transparency for preventive healthcare analytics.</li>
+          <li>Translated ML model outputs into actionable health guidance, enabling data-driven lifestyle optimization for individual users.</li>
+        </ul>
+      </div>
+
+      <div class="ats-entry">
+        <div class="ats-entry-header">
+          <span>Machine Learning Intern</span>
+          <span>Jun 2024 — Sep 2024</span>
+        </div>
+        <div class="ats-entry-subheader">
+          <span>Finlatics</span>
+          <span><a href="https://github.com/Yashub0428" target="_blank">GitHub Link</a> | <a href="https://drive.google.com/file/d/19F2yfyLsq3tCoj-fx33I_e6PUv0v6d3l/view?usp=sharing" target="_blank">Certificate Link</a></span>
+        </div>
+        <ul class="ats-entry-list">
+          <li>Developed a Brain Tumor Detection and Classification system using MRI imaging data and supervised ML models (CNN, SVM), improving diagnostic prediction accuracy by 15% over baseline.</li>
+          <li>Automated end-to-end ML pipeline stages - data preprocessing, feature extraction, model training, and evaluation - reducing manual workflow time by 30%.</li>
+          <li>Collaborated in an Agile/Scrum team of 5, participating in sprint planning and delivering weekly model performance reports.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ats-section">
+      <h2 class="ats-section-title">Projects</h2>
+      <div class="ats-entry">
+        <div class="ats-entry-header">
+          <span>LLM-Assisted Insider Threat Detection via Behavioral NLP</span>
+          <span>Feb 2026 — May 2026</span>
+        </div>
+        <div class="ats-entry-subheader">
+          <span>Academic Project / Threat Analytics</span>
+          <span><a href="https://github.com/Yashub0428/Insider-Threat-Detect" target="_blank">GitHub Link</a></span>
+        </div>
+        <ul class="ats-entry-list">
+          <li>Developed a hybrid AI insider threat detection framework integrating DistilBERT, Isolation Forest, XGBoost, and graph-based interaction analysis for behavioral anomaly detection.</li>
+          <li>Implemented multi-modal risk scoring and LLM-based recommendation engine, improving threat detection interpretability by 25% and enabling actionable cybersecurity alerts.</li>
+          <li>Technologies: Python, DistilBERT, HuggingFace Transformers, XGBoost, Scikit-learn, NetworkX, Flask.</li>
+        </ul>
+      </div>
+
+      <div class="ats-entry">
+        <div class="ats-entry-header">
+          <span>MindMate — AI-Driven Mental Health and Legal Chatbot</span>
+          <span>Sep 2025 — Dec 2025</span>
+        </div>
+        <div class="ats-entry-subheader">
+          <span>Academic Project / Corporate Support Node</span>
+          <span><a href="https://github.com/Yashub0428" target="_blank">GitHub Link</a></span>
+        </div>
+        <ul class="ats-entry-list">
+          <li>Built a conversational AI chatbot using Python, Flask, and BERT (TensorFlow/Keras) to provide mental health support and workplace legal guidance for employees.</li>
+          <li>Improved deep learning-based sentiment analysis and intent recognition accuracy by 10%, enabling empathetic, context-aware dialogue generation.</li>
+          <li>Ensured data privacy through anonymized chat handling, multilingual NLP support, and secure REST API backend deployment.</li>
+          <li>Technologies: Python, BERT, TensorFlow, Keras, Flask, REST APIs, NLP.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ats-section">
+      <h2 class="ats-section-title">Achievements</h2>
+      <ul class="ats-entry-list">
+        <li>Presented research papers at IEEE ICCCNT 2025 (IIT Indore) and AIHC 2025 (NIT Calicut).</li>
+      </ul>
+    </div>
+
+    <div class="ats-section">
+      <h2 class="ats-section-title">Skills</h2>
+      <div class="ats-skills-grid">
+        <div class="ats-skills-line"><strong>Languages:</strong> Python, C++, C, SQL, Java.</div>
+        <div class="ats-skills-line"><strong>Web & Backend:</strong> React.js, HTML, CSS, Flask, REST APIs.</div>
+        <div class="ats-skills-line"><strong>Machine Learning & AI:</strong> Scikit-learn, TensorFlow, Keras, PyTorch, HuggingFace Transformers, BERT, DistilBERT, Large Language Models.</div>
+        <div class="ats-skills-line"><strong>AI Specializations:</strong> Natural Language Processing (NLP), Deep Learning, Explainable AI (XAI), Computer Vision.</div>
+        <div class="ats-skills-line"><strong>Data & Analysis:</strong> NumPy, Pandas, Matplotlib, Seaborn, OpenCV.</div>
+        <div class="ats-skills-line"><strong>Core CS:</strong> Data Structures & Algorithms, OOP, DBMS, Operating Systems, Computer Networks, SDLC, Agile/Scrum.</div>
+        <div class="ats-skills-line"><strong>Tools & Platforms:</strong> Git, GitHub, VS Code, Google Colab, Jupyter Notebook, Google Workspace, MS Office.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simulated Form Success Message Toast Notification -->
+  <div class="toast-msg">
+    <i class="fas fa-check-circle"></i> Message Transmitted Successfully!
+  </div>
+
+  <script src="./script.js?v=1.0.5"></script>
 </body>
 </html>
